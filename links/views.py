@@ -18,6 +18,8 @@ from mezzanine.utils.views import paginate
 from drum.links.forms import LinkForm
 from drum.links.models import Link
 from drum.links.utils import order_by_score
+from django.http import HttpResponseRedirect
+from django.conf.urls import url
 
 
 # Returns the name to be used for reverse profile lookups from the user
@@ -144,8 +146,7 @@ class LinkCreate(CreateView):
         hours = getattr(settings, "ALLOWED_DUPLICATE_LINK_HOURS", None)
         if hours and form.instance.link:
             lookup = {
-                # fix the chinese character in link issue
-                "link": str(form.instance.link).encode(encoding='UTF-8', errors='strict'),
+                "link": form.instance.link,
                 "publish_date__gt": now() - timedelta(hours=hours),
             }
             try:
