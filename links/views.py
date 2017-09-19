@@ -129,7 +129,7 @@ class LinkList(LinkView, ScoreOrderingView):
                 USER_PROFILE_RELATED_NAME
             )
         else:
-            return "Newest"
+            return "最新"
 
 
 class LinkCreate(CreateView):
