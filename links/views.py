@@ -200,3 +200,14 @@ class CommentList(ScoreOrderingView):
 
 class TagList(TemplateView):
     template_name = "links/tag_list.html"
+
+
+class AboutUs(TemplateView):
+    template_name = "ext/about_us.html"
+
+
+class ContactUs(TemplateView):
+    template_name = "ext/contact_us.html"
+
+class SuggesttUs(TemplateView):
+    template_name = "ext/suggest_us.html"

@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 
-from drum.links.views import LinkList, LinkCreate, LinkDetail, CommentList, TagList
+from drum.links.views import LinkList, LinkCreate, LinkDetail, CommentList, TagList, \
+                              AboutUs, ContactUs, SuggesttUs
 
 
 urlpatterns = [
@@ -37,4 +38,13 @@ urlpatterns = [
     url("^tags/(?P<tag>.*)/$",
         LinkList.as_view(),
         name="link_list_tag"),
+    url("^ext/.*about_us.*$",
+        AboutUs.as_view(),
+        name="about_us"),
+    url("^ext/.*contact_us.*$",
+        ContactUs.as_view(),
+        name="contact_us"),
+    url("^ext/.*suggest_us.*$",
+        SuggesttUs.as_view(),
+        name="suggest_us"),
 ]
